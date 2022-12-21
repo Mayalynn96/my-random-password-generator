@@ -4,10 +4,11 @@ var Upcase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var specialCharacters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 var passwordLength;
 var optionPool = "";
+var randomize = [];
 
 
-askLength();
-function askLength() {
+// askLength();
+function generatePassword() {
   var length = prompt("Please enter the desired password length between 8 and 128", "");
   if (length >= 8 && length <= 128) {
     passwordLength = length;
@@ -34,26 +35,29 @@ function askLength() {
     }
     if (optionPool == "") {
       alert("You did not choose any characters for your password, please try again");
-      askLength();
+      generatePassword();
     } else {
-      return;
+      for (let i = 0; i < passwordLength; i++) {
+        randomize.push(optionPool[Math.floor(Math.random() * optionPool.length)])
+      };
+      return randomize.join('');
     }
   } else if (length < 8) {
     alert("Must input a number greater or equal to 8")
-    askLength();
+    generatePassword();
   }
 }
 
 
-var randomize = []
+// var randomize = []
 
-for (let i = 0; i < passwordLength; i++) {
-  randomize.push(optionPool[Math.floor(Math.random() * optionPool.length)])
-}
+// for (let i = 0; i < passwordLength; i++) {
+//   randomize.push(optionPool[Math.floor(Math.random() * optionPool.length)])
+// }
 
-function generatePassword() {
-  return randomize.join('')
-}
+// function generatePassword() {
+//   return randomize.join('')
+// }
 
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
