@@ -1,6 +1,6 @@
 var numbers = "0123456789";
 var lowCase = "abcdefghijklmnopqrstuvwxyz";
-var Upcase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+var Upercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 var specialCharacters = "!#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
 
 function generatePassword() {
@@ -23,7 +23,7 @@ function generatePassword() {
       optionPool = optionPool + "";
     }
     if (confirm("Do you want your password to contain upercase letters?")) {
-      optionPool = optionPool + Upcase;
+      optionPool = optionPool + Upercase;
     } else {
       optionPool = optionPool + "";
     }
