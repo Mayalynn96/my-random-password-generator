@@ -7,10 +7,7 @@ function generatePassword() {
   var passwordLength = 0;
   var optionPool = "";
   var length = prompt("Please enter the desired password length between 8 and 128", "");
-  if (length < 8 || length > 128) {
-    alert("Please input a number between 8 and 128!");
-    return generatePassword();
-  } else {
+  if (length >= 8 && length <= 128) {
     passwordLength = length;
     if (confirm("Do you want your password to contain numbers?")) {
       optionPool = optionPool + numbers;
@@ -39,6 +36,9 @@ function generatePassword() {
     } else {
       return randomizePassword(passwordLength, optionPool);
     }
+  } else {
+    alert("Please input a number between 8 and 128!");
+    return generatePassword();
   }
 }
 
